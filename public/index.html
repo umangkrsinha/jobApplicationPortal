@@ -1,0 +1,90 @@
+<html ng-app='myApp'>
+<head>
+	<title>Index Page</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+</head>
+<body>
+	<div class='container' ng-controller='AppCtrl'>
+		<h1>Main Page</h1>
+		<br/>
+		<table class="table" ng-hide="adminPresence">
+			<h3 ng-hide="adminPresence">Register an Admin</h3>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Username</th>
+					<th>Email</th>
+					<th>Password</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model ="admin.name"></td>
+					<td><input class="form-control" ng-model ="admin.username"></td>
+					<td><input class="form-control" ng-model ="admin.email"></td>
+					<td><input class="form-control" type="password" ng-model ="admin.password"></td>
+					<td><button class="btn btn-info" ng-click="registerAdmin()">Register Admin</button></td>
+				</tr>
+			</tbody>
+		</table>
+
+		{{message}}
+		
+		<table class="table" ng-show="adminPresence">
+			<h3 ng-show="adminPresence">Register as Applicant</h3>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Username</th>
+					<th>Email</th>
+					<th>Password</th>
+					<th> </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model ="user.name"></td>
+					<td><input class="form-control" ng-model ="user.username"></td>
+					<td><input class="form-control" ng-model ="user.email"></td>
+					<td><input class="form-control" type="password" ng-model ="user.password"></td>
+					<td><button class="btn btn-info" ng-click="registerUser()">Register Applicant</button></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="table" ng-show="adminPresence">
+			<h3 ng-show="adminPresence">Login</h3>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Username</th>
+					<th>Email</th>
+					<th>Password</th>
+					<th> </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model ="loginUser.name"></td>
+					<td><input class="form-control" ng-model ="loginUser.username"></td>
+					<td><input class="form-control" ng-model ="loginUser.email"></td>
+					<td><input class="form-control" type="password" ng-model ="loginUser.password"></td>
+					<td><button class="btn btn-info" ng-click="userLogin()">Login</button></td>
+				</tr>
+			</tbody>
+		</table>
+
+			<td><a href="/applicantPage"><button class='btn btn-info' ng-show="!userIsAdmin && loggedIn">Applicant Page</button></a></td>
+			<td><button class="btn btn-danger" ng-click="logout()" ng-show="loggedIn">Logout</button></td>
+			<td><a href="/hmPage"><button class='btn btn-info' ng-show="userIsAdmin && loggedIn">Hiring Manager Page</button></a></td>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="./controllers/IndexCtrl.js"></script>
+</body>
+</html>

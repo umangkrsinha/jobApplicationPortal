@@ -1,0 +1,47 @@
+<html ng-app='myApplicantPageApp'>
+<head>
+	<title>Index Page</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<div class='container' ng-controller='ApplicantPageCtrl'>
+		
+		<h1>Applicant's Page</h1>
+		<span>{{message}}</span>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name of Post</th>
+					<th>Amount of posts open</th>
+					<th>Apply for Post</th>
+					<th> </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="post in postList">
+					<td><a href="/uploads/{{post.quest}}">{{post.name}}</a></td>
+					<td><span>{{post.Lnumber}}</span></td>
+					<td ng-hide="post.Lnumber == 0">
+						<form ng-submit="submit(post._id, post.name)">
+							<input class="form-control" ng-model="FileInput" type="file" id="file">
+							<button ng-disabled="post.applyDisable">Apply</button>
+						</form>
+					</td>
+					<td><span ng-show="post.Lnumber == 0">Sorry there are no posts available</span></td>
+				</tr>
+			</tbody>
+		</table>
+	<span><a href="/historyPage">See history and approval status</a></span>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="./controllers/applicantPageCtrl.js"></script>
+</body>
+</html>

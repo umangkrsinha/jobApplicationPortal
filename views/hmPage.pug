@@ -1,0 +1,66 @@
+<html ng-app='myHMPageApp'>
+<head>
+	<title>Index Page</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<div class='container' ng-controller='HMPageAppCtrl'>
+		<h1>Hiring Manager's Page</h1>
+		<form ng-submit="submit()">
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Questionnaire PDF</th>
+					<th>How many posts?</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" type="text" ng-model ="post.name"></td>
+					<td><input class="form-control" type="file" id="file"></td>
+					<td><input class="form-control" type="number" ng-model ="post.Lnumber"></td>
+				</tr>
+			</tbody>
+		</table>
+
+			<button>Create Post</button>
+		
+		</form>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>How many posts left</th>
+					<th> </th>
+					<th> </th>
+					<th> </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="onePost in postList">
+					<th>{{onePost.name}}</th>
+					<th>{{onePost.Lnumber}}</th>
+					<td><button class="btn btn-danger" ng-click="remove(onePost._id)">Remove</button></td>
+					<td><button class="btn btn-warning" ng-click="edit(onePost._id)">Edit</button></td>
+					<td><a href="/postInfo/{{onePost._id}}"><button class="btn btn-info">Applications</button></a></td>
+				</tr>
+			</tbody>
+		</table>
+	
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="./controllers/hmPageCtrl.js"></script>
+	<script ></script>
+</body>
+</html>	

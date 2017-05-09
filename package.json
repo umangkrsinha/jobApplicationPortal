@@ -1,0 +1,27 @@
+{
+  "name": "authapp",
+  "version": "1.0.0",
+  "description": "Mean stack authentication app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "express-session": "^1.15.2",
+    "jsonwebtoken": "*",
+    "mean-admin": "0.0.2",
+    "mongoose": "*",
+    "mongoose-role": "^2.0.0",
+    "multer": "^1.3.0",
+    "passport": "*",
+    "passport-jwt": "*",
+    "pug": "^2.0.0-rc.1"
+  },
+  "author": "Umang Sinha",
+  "license": "ISC"
+}
