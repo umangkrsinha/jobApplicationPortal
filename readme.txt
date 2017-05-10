@@ -1,16 +1,16 @@
 Please read the following to use this app appropiately:
 	
-	1). First of all to run the app correctly you should have the following softwares installed on your system:
+	1). First of all you should have the following softwares installed on your system:
 
 			a). MongoDB
 			b). Nodejs
 
-		additionally you should also have an active internet connection to download the css, angular, jquery and bootstrap 
+		have an active internet connection to download the css, angular, jquery and bootstrap 
 		files from the respective CDNs.
 
-	2). Secondly, open terminal, cd into this file's directory and run: npm install (use sudo here if you see any errors),
-		now the app can be run, just do this: make sure mongod is running and do: node start or do: node app in this directory,
-		the app will run on localhost:3000.
+	2). Open terminal, cd into this file's directory and run: npm install (use sudo here if you see any errors),
+	    now the app can be run, just do this: make sure mongod is running and do: node start or node app in this directory,
+	    the app will run on localhost:3000.
 	
 	3). In the app at places where you are given an option to upload a file please upload a pdf only, for uploading other types
 		of files go to ./routes/files.js and edit line 12 of this file like this: change '.pdf' string to '.<file extn>' (eg: '.jpg'),
